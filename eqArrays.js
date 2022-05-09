@@ -1,10 +1,11 @@
-const eqArrays = function(array1, array2) {
+const eqArrays = function(actual, expected) {
   let output = true;
-  if (array1.length !== array2.length) return false;
-  for (let element = 0; element < array1.length; element += 1) {
-    if (Array.isArray(array1[element]) || Array.isArray(array2[element])) {
-      output = output && eqArrays(array1[element], array2[element]);
-    } else if (array1[element] !== array2[element]) {
+  if (actual.length !== expected.length) return false;
+  
+  for (let element = 0; element < actual.length; element += 1) {
+    if (Array.isArray(actual[element]) || Array.isArray(expected[element])) {
+      output = output && eqArrays(actual[element], expected[element]);
+    } else if (actual[element] !== expected[element]) {
       output = output && false;
     }
   }
