@@ -1,6 +1,15 @@
-const tail = require('../tail')
-const assertEqual = require('../assertEqual')
+const assert = require('chai').assert;
+const tail   = require('../tail');
 
-const words = ["Yo Yo", "Lighthouse", "Labs"];
-tail(words); // no need to capture the return value since we are not checking it
-assertEqual(words.length, 3);
+describe("#tail", () => {
+  it("returns word length of 3", () => {
+    const words = ["Yo Yo", "Lighthouse", "Labs"];
+    tail(words);
+    assert.strictEqual(words.length, 3); //pass
+  });
+  it("returns word length of 3", () => {
+    const words = ["Yo Yo", "Light", "house", "Labs"];
+    tail(words);
+    assert.strictEqual(words.length, 3); //fail
+  });
+});
