@@ -12,10 +12,10 @@ const eqArrays = function(actual, expected) {
   return output;
 };
 
-const assertArraysEqual = function(array1, array2) {
-  if (eqArrays(array1, array2) === true ) {
+const assertArraysEqual = function(actual, expected) {
+  if (eqArrays(actual, expected) === true) {
     console.log(`✅✅✅ Assertation Passed: ${actual} === ${expected}`);
-  } else if (eqArrays(array1, array2) === false ) {
+  } else {
     console.log(` 🛑🛑🛑 Assertion Failed:  ${actual} !==  ${expected}`);
   }
 };
@@ -31,5 +31,5 @@ const without = function(source, itemsRemove) {
   return source;
 };
 
-without([1, 2, 3], [1]) // => [2, 3]
-without(["1", "2", "3"], [1, 2, "3"]) // => ["1", "2"]
+assertArraysEqual(without([1, 2, 3], [1])); // => [2, 3]
+assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"])); // => ["1", "2"]
