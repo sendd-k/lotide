@@ -6,21 +6,23 @@ const assertEqual = function(actual, expected) {
   }
 };
 
+
+
 const countOnly = function(allItems, itemsToCount) {
   let subset = {};
-  for(item in itemsToCount)
-    if(itemsToCount[item]) {
+  for (let item in itemsToCount)
+    if (itemsToCount[item]) {
       let count = 0;
-      for (let i = 0; i <allItems.length; i++) {
-        if(allItems[i] === item){
-          count += 1
+      for (let i = 0; i < allItems.length; i++) {
+        if (allItems[i] === item) {
+          count += 1;
         }
       }
-      if(count !== 0) {
-        subset[item] = count
+      if (count !== 0) {
+        subset[item] = count;
       }
     }
-    return subset;
+  return subset;
 };
 
 const firstNames = [
