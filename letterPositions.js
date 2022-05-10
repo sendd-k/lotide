@@ -12,17 +12,17 @@ const eqArrays = function(actual, expected) {
   return output;
 };
 
-const assertArraysEqual = function(array1, array2) {
-  if (eqArrays(array1, array2)) {
-    console.log(`✅✅✅ Assertation Passed: ${array1} === ${array2}`);
-  } else if (eqArrays(array1, array2)) {
-    console.log(` 🛑🛑🛑 Assertion Failed:  ${array1} !==  ${array2}`);
+const assertArraysEqual = function(actual, excpected) {
+  if (eqArrays(actual, excpected)) {
+    console.log(`✅✅✅ Assertation Passed: ${actual} === ${excpected}`);
+  } else {
+    console.log(` 🛑🛑🛑 Assertion Failed:  ${actual} !==  ${excpected}`);
   }
 };
 
 const letterPositions = function(sentence) {
   const results = {};
-  for(let i = 0; i < sentence.length; i++) {
+  for (let i = 0; i < sentence.length; i++) {
     //add letters to object(results)
     let key = sentence[i];
     let value = i;
@@ -33,7 +33,7 @@ const letterPositions = function(sentence) {
       results[key] = value;
     } else {
       //if nothing create new key
-      results[sentence[i]] = [i]
+      results[sentence[i]] = [i];
     }
   }
   return results;
